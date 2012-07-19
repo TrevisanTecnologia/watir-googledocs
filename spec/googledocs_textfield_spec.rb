@@ -23,5 +23,11 @@ describe "Look for browser elements" do
 	  first_field.when_present.set 'Luiza foi para o Canada, denovo.'
 	  first_field.value.should == 'Luiza foi para o Canada, denovo.'
 	end
+	
+	it "Check age between 29 and 50" do
+    age_radio = @firefox.label(:text => 'Idade em anos').parent.radio :value => 'entre 29 anos  e 50 anos'
+    age_radio.set
+    age_radio.set?.should be(true)
+  end
 
 end
